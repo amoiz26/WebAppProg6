@@ -22,9 +22,14 @@
 
 <p id="result">Correct: 0, Not Correct: 0</p>
 
+<div>
+    <img id="foodImage" src="biryani.jpg" width="150" height="150" onclick="updatePic()">
+</div>
+
 <script>
     let correct = 0;
     let notCorrect = 0;
+    let usePic = 1;
 
     function checkActor() {
         let actor = document.getElementById("actor").value;
@@ -41,6 +46,26 @@
         document.getElementById("result").innerHTML =
             "Correct: " + correct + ", Not Correct: " + notCorrect;
     }
+
+function updatePic() {
+    switch (usePic) {
+        case 1:
+            document.getElementById("foodImage").src = "icecream.jpg";
+            usePic = 2;
+            break;
+
+        case 2:
+            document.getElementById("foodImage").src = "macaroni.jpg";
+            usePic = 3;
+            break;
+
+        case 3:
+            document.getElementById("foodImage").src = "biryani.jpg";
+            usePic = 1;
+            break;
+    }
+}
+
 </script>
 
 </body>
