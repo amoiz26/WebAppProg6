@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Abdul Moiz sales computation</h2>
+
+<form>
+    <label for="numberItems">Enter number items</label>
+    <input type="number" id="numberItems" value="1"><br>
+
+    <label for="itemCost">Enter the cost of one item</label>
+    <input type="number" id="itemCost" value="20.0"><br>
+
+    <label for="numberForDiscount">Enter number to get discount</label>
+    <input type="number" id="numberForDiscount" value="10"><br>
+
+    <label for="discountRate">Enter the discount rate</label>
+    <input type="number" id="discountRate" value="0.15"><br>
+
+    <input type="button" onclick="doDiscount()" value="Show costs">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<h3>Choose an operation</h3>
+
+<form>
+    <input type="radio" id="product" name="operation" value="mul" onclick="chooseOp()">
+    <label for="product">Product</label><br>
+
+    <input type="radio" id="sum" name="operation" value="add" onclick="chooseOp()">
+    <label for="sum">Sum</label><br>
+
+    <input type="radio" id="divide" name="operation" value="div" onclick="chooseOp()">
+    <label for="divide">Divide</label><br>
+</form>
+
+<p id="opResult">Operation result will appear here</p>
+
+<script>
+    function doDiscount() {
+        let number = Number(document.getElementById("numberItems").value);
+        let cost = Number(document.getElementById("itemCost").value);
+        let discountRate = Number(document.getElementById("discountRate").value);
+        let discountAt = Number(document.getElementById("numberForDiscount").value);
+
+        let costs = "";
+
+        for (let i = 1; i <= 5; i++) {
+            let checkCount = i * number;
+            let totalCost;
+
+            if (checkCount <= discountAt) {
+                totalCost = checkCount * cost;
+            } else {
+                totalCost = (discountAt * cost) +
+                    ((checkCount - discountAt) * cost * (1 - discountRate));
+            }
+
+            costs += "checkCount " + checkCount + " is " + totalCost + "; ";
+        }
+
+        document.getElementById("result").innerHTML =
+            "Costs are: " + costs;
+    }
+
+function chooseOp() {
+    let count = Number(document.getElementById("numberItems").value);
+    let discountAt = Number(document.getElementById("numberForDiscount").value);
+
+    let value;
+    let message;
+
+    if (document.getElementById("product").checked) {
+        value = count * discountAt;
+        message = count + " times " + discountAt + " is " + value;
+    } else if (document.getElementById("sum").checked) {
+        value = count + discountAt;
+        message = count + " plus " + discountAt + " is " + value;
+    } else if (document.getElementById("divide").checked) {
+        value = count / discountAt;
+        message = count + " divided by " + discountAt + " is " + value;
+    }
+
+    document.getElementById("opResult").innerHTML = message;
+}
+
+</script>
+
+</body>
+</html> 
