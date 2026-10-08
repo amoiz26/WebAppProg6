@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <title>Sales Computation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
  
-<body>
+<body class="container mt-4">
 
 <h2>Abdul Moiz sales computation</h2>
 
 <form>
     <label for="numberItems">Enter number items</label>
-    <input type="number" id="numberItems" value="1"><br>
+    <input type="number" class="form-control" id="numberItems" value="1"><br>
 
     <label for="itemCost">Enter the cost of one item</label>
-    <input type="number" id="itemCost" value="20.0"><br>
+    <input type="number" class="form-control" id="itemCost" value="20.0"><br>
 
     <label for="numberForDiscount">Enter number to get discount</label>
-    <input type="number" id="numberForDiscount" value="10"><br>
+    <input type="number" class="form-control" id="numberForDiscount" value="10"><br>
 
     <label for="discountRate">Enter the discount rate</label>
-    <input type="number" id="discountRate" value="0.15"><br>
+   <input type="number" class="form-control" id="discountRate" value="0.15"><br>
 
-    <input type="button" onclick="doDiscount()" value="Show costs">
+    <input type="button" class="btn btn-primary mt-2" onclick="doDiscount()" value="Show costs">
 </form>
 
 
